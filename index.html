@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="一个面向量化研究与实盘模拟的轻量级 Python 引擎">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/themes/vue.css">
+  <!-- 使用 UNPKG CDN（国内更稳定） -->
+  <link rel="stylesheet" href="https://unpkg.com/docsify@4/themes/vue.css">
 </head>
 <body>
   <div id="app">加载中...</div>
@@ -14,15 +15,18 @@
     window.$docsify = {
       name: 'QFEngine',
       repo: 'cww6911/qfengine',
-      homepage: 'README.md',   // 👈 显式指定首页
+      homepage: 'README.md',
       loadSidebar: false,
       coverpage: false,
       onlyCover: false,
       themeColor: '#2196f3',
       auto2top: true,
-      notFoundPage: true
+      notFoundPage: true,
+      basePath: '/qfengine/'
     };
   </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- 使用 UNPKG 加载 docsify -->
+  <script src="https://unpkg.com/docsify@4"></script>
 </body>
 </html>
+
