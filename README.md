@@ -1,8 +1,14 @@
-\# QFEngine — 精确复权 · 可信回测 · 智能选股
 
 
 
-> 一个面向量化研究与实盘模拟的轻量级 Python 引擎，  
+
+
+
+\# QFEngine — 精确复权 · 可信回测 · 智能选股，下载结构化技术形态数据
+
+
+
+> 一个面向量化研究与实盘模拟的轻量级 Python 引擎，  提供自研的结构化技术形态数据下载。
 
 > 核心特色：\*\*数学保真的价格复权 + 可审计的交易记录 + 股票池驱动的策略框架\*\*。
 
@@ -12,7 +18,55 @@
 
 
 
-\## ✨ 核心特性
+\## ✨ 核心特性：
+
+
+# QF Engine：交易场论量化数据
+
+> **收益不在K线里，而在场中。**  
+> 本项目基于「交易场论」（Trading Field Theory）构建量化研究基技术形态数据，开源**技术形态数据集**与**策略逻辑框架**，旨在探索市场结构的本质坐标。
+
+---
+
+## 📊 技术形态数据集（Fractal Position Dataset）
+
+我们提供中国全市场A股品种的**场坐标预计算数据**，将原始价格映射到具有物理意义的“场空间”中，为策略开发提供新维度。
+
+### ✨ 核心特性
+- **场坐标定义**：
+  - `rate_position`
+  - `pressure_position`：（基于分形嵌套结构的压力强度坐标）
+  - （更多字段见数据样例）
+- **覆盖范围**：A股（以后会扩展）
+- **时间粒度**：日线级别，从 1995 年至2025年（以后会定时更新）
+### 🗂️ 存储结构：数据按日分区存储为高效列式格式
+
+
+> 💡 使用 **Git LFS** 管理大文件，确保仓库轻量可克隆。
+
+---
+
+## 🚀 快速开始
+
+### 1. 克隆仓库 + 下载数据
+```bash
+git clone https://github.com/cww6911/qfengine.git
+cd qfengine
+git lfs install      # 首次使用需安装 Git LFS
+git lfs pull         # 下载所有 .parquet 数据文件
+
+---
+
+加载数据（Python 示例）：
+
+import pandas as pd
+
+# 加载某一年数据
+df = pd.read_parquet('data/fractal_2025.parquet')
+
+# 查看核心字段
+print(df[['symbol', 'date', 'rate_position', 'pressure_position']].head())
+
 
 
 
