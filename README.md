@@ -55,14 +55,20 @@ cd qfengine
 git lfs install      # 首次使用需安装 Git LFS
 git lfs pull         # 下载所有 .parquet 数据文件
 
+📥 不想用 Git？  
+→ [点击下载完整数据集（ZIP 格式）](https://github.com/cww6911/qfengine/releases)
+
 ---
 
 加载数据（Python 示例）：
 
 import pandas as pd
 
-# 加载某一年数据
-df = pd.read_parquet('data/fractal_2025.parquet')
+# 示例：加载全部数据
+df = pd.read_parquet('data/')
+
+# 示例：加载2025年
+df_2025 = pd.read_parquet('data/', filters=[('date', '>=', '2025-01-01')])
 
 # 查看核心字段
 print(df[['symbol', 'date', 'rate_position', 'pressure_position']].head())
